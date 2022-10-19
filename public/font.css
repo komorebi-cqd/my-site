@@ -1,0 +1,12 @@
+@font-face {
+    font-family: OpSBold;
+    src: url('./fonts/OpenSans-Bold.ttf');
+}
+@font-face {
+    font-family: OpSRegular;
+    src: url('./fonts/OpenSans-Regular.ttf');
+}
+@font-face {
+    font-family: OpSLight;
+    src: url('./fonts/OpenSans-Light.ttf');
+}
