@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import homeBg from '../assets/images/bg_top2.png'
 import Sidebar from '../components/Sidebar'
+import { useState } from 'react'
 
 const Container = styled.div`
     width: 100%;
@@ -19,12 +20,12 @@ const HomeTop = styled.div`
     position: absolute;
     top: 0;
     right: 0;
-    z-index: -1;
+    z-index: 1;
 
 `
 
 // 顶部文字
-const Sentence =styled.div`
+const Sentence = styled.div`
     position: absolute;
     top: 34px;
     right: 60px;
@@ -33,6 +34,7 @@ const Sentence =styled.div`
     font-size: 16px;
     padding: 12px 30px;
     z-index: 2;
+    cursor: pointer;
     &::before{
         content: '';
         position: absolute;
@@ -67,17 +69,24 @@ const MainDivR = styled.div`
 `
 
 export default function Root() {
-  return (
-    <Container>
-        <HomeTop>
-            <Sentence>Don't Cry</Sentence>
-        </HomeTop>
-        <MainDiv>
-            <MainDivL>
-                <Sidebar />
-            </MainDivL>
-            <MainDivR></MainDivR>
-        </MainDiv>
-    </Container>
-  )
+    const [draw, setDraw] = useState(false);
+    const changeDraw = (id) => {
+        console.log('====================================');
+        console.log('设置',id);
+        console.log('====================================');
+        setDraw(!draw);
+    }
+    return (
+        <Container>
+            <HomeTop>
+                <Sentence onClick={() => changeDraw('111')}>Don't Cry</Sentence>
+            </HomeTop>
+            <MainDiv>
+                <MainDivL drawBack={draw}>
+                    <Sidebar />
+                </MainDivL>
+                <MainDivR drawBack={draw}></MainDivR>
+            </MainDiv>
+        </Container>
+    )
 }

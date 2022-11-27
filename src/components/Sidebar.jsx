@@ -20,6 +20,7 @@ const SidebarDiv = styled.div`
     padding: 16px 46px 0 24px;
     display: flex;
     flex-direction: column;
+    z-index: 999;
     /* justify-content: space-between; */
     >.sidebar_toggle{
         position: absolute;
